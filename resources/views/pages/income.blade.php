@@ -1,6 +1,7 @@
 @extends('index')
 @section('content')
 <div style="border: #343a40 solid 1px; width:90%;margin-right:50px;height: auto;min-height: 400px;padding:20px;border-radius: 10px;">
+
 <style>
     .danger{
         color:red
@@ -60,22 +61,26 @@
         <form method="post" action="{{route('store')}}">
             @csrf
 <table>
-<tr>@error('name')
+<tr>
+    @error('Name')
 <div class="danger">
-    <?PHP $message="نام و نام خانوادگی را وارد کنید";  ?>
+    <?php
+     $message = "نام و نام خانوادگی را وارد کنید"; 
+      ?>
 {{$message}}
 @enderror   
     <td>نام:</td>
     <td>
     
  
-    <input type="text" name="name" placeholder="نام بیمار را وارد کنید."> </td>
-    @error('name')
+    <input type="text" name="Name" placeholder="نام بیمار را وارد کنید."> </td>
+    @error('Mobile')
 <div class="danger">
-    <?PHP $message=" موبایل را وارد کنید";  ?>
+    <?php
+     $message=" موبایل را وارد کنید";  ?>
 {{$message}}
 @enderror    <td>موبایل:</td>
-        <td><input type="text" name="mobile" placeholder="موبایل بیمار را وارد کنید."> </td>
+        <td><input type="text" name="Mobile" placeholder="موبایل بیمار را وارد کنید."> </td>
     </tr>
 
     <tr>
@@ -96,14 +101,14 @@
 <tr>
     <td>@error('Insurance')
 <div class="danger">
-    <?PHP $message=" بیمه را وارد کنید";  ?>
+    <?php $message=" بیمه را وارد کنید";  ?>
 {{$message}}
 @enderror   </td>
-<td><input type="radio"  name="Insurance" value="1"> بیمه دارد.</td>
+<td><input type="radio"  name="Insurance" value="1" > بیمه دارد.</td>
 </tr>
 <tr>
     <td></td>
-<td><input type="radio"  name="Insurance" value="0"> (آزاد)بیمه ندارد.</td>
+<td><input type="radio"  name="Insurance" value="0" checked> (آزاد)بیمه ندارد.</td>
 </tr>
    <tr>
     <td>مبلغ:</td>
@@ -113,14 +118,23 @@
    
     <td colspan="2">@error('Price')
 <div class="danger">
-    <?PHP $message=" مبلغ را وارد کنید";  ?>
+    <?php $message=" مبلغ را وارد کنید";  ?>
 {{$message}}
 @enderror    <input type="text" id="price" name="Price"  onkeyup="javascript:this.value=itpro(this.value);"> </td>
     
     <td><label id="lable"></label></td>
-   <td><input type="text" name="description" placeholder="توضیحات را وارد کنید." id="description" style="visibility:hidden" ></td>
+   <td><input type="text" name="Description" placeholder="توضیحات را وارد کنید." id="description" style="visibility:hidden" ></td>
     </tr>
+<tr>
+    <td colspan="2">
+        <select name="Payment">
 
+        <option value="0">pos</option>
+        <option value="1">نقدی</option>
+        <option value="2">کارت به کارت</option>
+        </select>
+</td>
+</tr>
     <tr>
    
    <td > 
@@ -132,33 +146,15 @@
     
   <td colspan="2">
     
-  <input list="listid" name="from">
+  <input list="listid" name="From">
   <datalist id="listid">
 
-<option value="ال محمد">
 
- <option value="فرجام ">
-
- <option value="دکتر حایری">
-
-<option value="دکتر معزز">
-
-<option value="اهنگ سلامتی">
+  @foreach ($from as $f )
+  <option value="{{$f->Name}} ">
 
 
-
-<option value="دکتر حیدر زاده ">
-
- <option value="دکتر زریان ">
-
- <option value="دکتر زهرا قاسمی">
-
-<option value="امام رضا">
-
-<option value="دکتر محمدی اصل ">
-
-<option value="آزاد">
-
+  @endforeach
  </datalist>
 
   </td>
@@ -175,7 +171,7 @@ $date = new jDateTime(true, true, 'Asia/Tehran');
  echo $t;
 ?></label>
 <input type="hidden" name="WeekDay" value="
-<?PHP
+<?php
  $t=$date->date("l");
  echo $t;
 
@@ -184,7 +180,7 @@ $date = new jDateTime(true, true, 'Asia/Tehran');
 >
 
 <input type="hidden" name="Day" value="
-<?PHP
+<?php
  $t= $date->date("j");
  echo $t;
 
@@ -193,7 +189,7 @@ $date = new jDateTime(true, true, 'Asia/Tehran');
 >
 
 <input type="hidden" name="Year" value="
-<?PHP
+<?php
  $t= $date->date("Y");
  echo $t;
 
@@ -201,8 +197,8 @@ $date = new jDateTime(true, true, 'Asia/Tehran');
 "
 >
 
-<input type="hidden" name="date" value="
-<?PHP
+<input type="hidden" name="Date" value="
+<?php
  $t= $date->date("l_ j F _Y _ساعت: H:i_A");
  echo $t;
 
@@ -211,7 +207,7 @@ $date = new jDateTime(true, true, 'Asia/Tehran');
 >
 
 <input type="hidden" name="Moon" value="
-<?PHP
+<?php
  $t= $date->date("m");
  echo $t;
 
@@ -221,7 +217,7 @@ $date = new jDateTime(true, true, 'Asia/Tehran');
 
 
 <input type="hidden" name="UserId" value="
-<?PHP
+<?php
  $t=1;
  echo $t;
 
@@ -238,20 +234,49 @@ $date = new jDateTime(true, true, 'Asia/Tehran');
 </form>
 
 @if (count($show) >0)
-<table  class="table">
-    
+<table  class="table" style="text-align: center;margin-top: 30px;margin-bottom: 200px;">
+    <th>شماره</th>
+<th>نام و نام خانوادگی</th>
+<th>شرح فعالیت</th>
+<th>مبلغ</th>
+<th>موبایل</th>
+<th>ارجاع از</th>
+<th>زمان</th>
+<th>بیمه</th>
+<th>نوع پرداخت</th>
+<?php  $n=0; ?>
    @foreach ($show as $s )
    
   
     <tr>
+        <td><?php echo $n=$n+1;  ?></td>
         <td>{{$s->name}}</td>
+      
+        <td>{{$s->Description}}</td>
+        <td>{{$s->Price}}</td>
         <td>{{$s->mobile}}</td>
-        <td>{{$s->description}}</td>
-        <td>{{$s->price}}</td>
-        <td>{{$s->from}}</td>
+        <td>{{$s->From}}</td>
         <td>{{$s->date}}</td>
-        <td>{{$s->day}}</td>
-        <td>{{$s->year}}</td>
+        <td><?php
+      
+        
+        $insurance=$s->Insurance;
+        if($insurance==0)
+        echo "بیمه ندارد.";
+        else
+        echo "با بیمه";
+          ?></td>
+        <td><?php
+      
+        
+      $payment=$s->Payment;
+      if($payment==0)
+      echo " pos ";
+      elseif($payment==1)
+      echo "نقدی ";
+        else
+        echo "کارت به کارت";
+        ?></td>
     </tr>
     @endforeach
 </table>
