@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\FromController;
+use App\Http\Controllers\FromInfoController;
 use App\Http\Controllers\HesabController;
+
+use App\Http\Controllers\HoghoghController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +25,14 @@ Route::get('/', function () {
 Route::get('/start',[HesabController::class,'index'])->name('income');
 Route::post('/store',[HesabController::class,'store'])->name('store');
 
+Route::get('/from',[FromController::class,'index'])->name('from');
+Route::get('/from/info',[FromInfoController::class,'index'])->name('frominfo');
+Route::post('/from/store',[FromController::class,'store'])->Name('fromstore');
 
 
+Route::get('/salary',[HoghoghController::class,'index'])->name('salary');
+Route::post('/salary/store',[HoghoghController::class,'store'])->Name('salarystore');
 
+
+Route::get('/cost',[HesabController::class,'costshow'])->name('cost');
+Route::post('/cost/store',[HesabController::class,'coststore'])->Name('coststore');
