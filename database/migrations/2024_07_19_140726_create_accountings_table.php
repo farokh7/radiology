@@ -15,11 +15,11 @@ class CreateAccountingsTable extends Migration
     {
         Schema::create('accountings', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('mobile');
-            $table->string('date');
+            $table->string('Name');
+            $table->string('Mobile');
+            $table->string('Date');
             $table->string('Day');
-            $table->string('weekday');
+            $table->string('WeekDay');
             $table->string('Moon');
             $table->string('Year');
             $table->text('Description');
