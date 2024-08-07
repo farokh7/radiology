@@ -152,6 +152,8 @@ $date = new jDateTime(true, true, 'Asia/Tehran');
 
 
 
+
+
 </td>
 <tr>
     <td colspan="2">
@@ -170,6 +172,8 @@ $date = new jDateTime(true, true, 'Asia/Tehran');
 <th> تاریخ پرداخت</th>
 <th>توضیحات</th>
 <th> زمان ثبت</th>
+<th>  حذف</th>
+<th>  ویرایش</th>
 <?php  $n=0; ?>
    @foreach ($show as $s )
    
@@ -177,6 +181,7 @@ $date = new jDateTime(true, true, 'Asia/Tehran');
     <tr>
         <td><?php echo $n=$n+1;  ?></td>
         <td>{{$s->title}}</td>
+        <td>{{$s->price}}</td>
         <td>
           
             <?PHP
@@ -186,11 +191,14 @@ $date = new jDateTime(true, true, 'Asia/Tehran');
             echo "چک";
         ?>
         </td>
-        <td>{{$s->type}}</td>
+      
         <td>{{$s->time}}</td>
         <td>{{$s->discription}}</td>
         <td>{{$s->date}}</td>
-      
+        <td ><a href="{{URL::to('/cost/delete/'.$s->id) }}"><input type="button" class="danger" value="حذف" ></a></td>
+        <td ><a href="{{URL::to('/cost/update/'.$s->id) }}"><input type="button" class="success" value="بروزرسانی" ></a></td>
+
+
        
     </tr>
     @endforeach

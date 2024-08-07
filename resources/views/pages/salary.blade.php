@@ -90,11 +90,11 @@
    <input type="text" name="Business" value="رادیولوژی">
 
   </td>
-  <td>پرداخت اضافه:</td>
-  <td><input type="text" name="OverPay"  onkeyup="javascript:this.value=itpro(this.value); "></td>
+  <td>پرداخت اضافه/کلی:</td>
+  <td><input type="text" name="OverPay" value="0"  onkeyup="javascript:this.value=itpro(this.value); "></td>
    </tr>
 <tr>
-<td colspan="3"><label value="s">
+<td colspan="4"><label value="s">
        برای چه تاریخی:
         <?php
 
@@ -107,7 +107,14 @@ $date = new jDateTime(true, true, 'Asia/Tehran');
 
 
 
+<input style="width: 10%;" type="text" name="day" value="
+<?php
+ $t= $date->date("j");
+ echo $t;
 
+?>
+"
+>
 
 
 <input style="width: 10%;" type="text" name="Moon" value="
@@ -129,8 +136,20 @@ $date = new jDateTime(true, true, 'Asia/Tehran');
 
 </td>
 <tr>
-    <td colspan="2">
-        <input type="submit" class="btn btn-success" style="width:190px;" value="ثبت">
+    <td>
+
+    توضیحات:
+    </td>
+    <td>
+    <textarea name="discription" rows="5">
+
+</textarea>
+    </td>
+</tr>
+<tr>
+    <td></td>
+    <td colspan="1">
+        <input type="submit" class="btn btn-success" style="width:100%;" value="ثبت">
     </td>
 </tr>
 </table>
@@ -145,9 +164,11 @@ $date = new jDateTime(true, true, 'Asia/Tehran');
 <th>مبلغ</th>
 <th> ماه</th>
 <th>سال</th>
-<th>مبلغ اضافه</th>
+<th>مبلغ اضافه/یکجا</th>
+<th> توضیحات</th>
 <th>نوع کسب و کار</th>
 <th>  مبلغ کل</th>
+<th>   حذف</th>
 <?php  $n=0; ?>
    @foreach ($show as $s )
    
@@ -162,8 +183,11 @@ $date = new jDateTime(true, true, 'Asia/Tehran');
         <td>{{$s->Moon}}</td>
         <td>{{$s->Year}}</td>
         <td>{{$s->OverPay}}</td>
+        <td>{{$s->discription}}</td>
         <td>{{$s->Business}}</td>
         <td>{{number_format(intval (str_replace(",","",$s->OverPay)) + intval($s->Price))}}</td>
+        <td ><a href="{{URL::to('/salary/delete/'.$s->id) }}"><span class="glyphicon glyphicon-trash">حذف</span></a></td>
+
         <td></td>
     </tr>
     @endforeach
