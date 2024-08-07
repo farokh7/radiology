@@ -2,54 +2,36 @@
 
 namespace App\Http\Controllers;
 
+
+
 use App\Models\Accounting;
 use App\Models\From;
-use App\Models\Payment;
+use App\Models\hoghogh;
+use App\Models\payment;
+
+
 use Illuminate\Http\Request;
 
-class HesabController extends Controller
+
+class CostController extends Controller
 {
-    
+   
     public function index()
     {
-        $show=Accounting::all()->sortByDesc('id');
-        $from=From::all()->sortByDesc('id');
-        return view('pages.income',compact("show","from"));
+        $show=Payment::all()->sortByDesc('id');
+        $from=Payment::all()->sortByDesc('id');
+        return view('pages.Cost',compact("show","from"));
     }
 
-    
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
-        $request->validate([
-            'Name'=>'Required',
-                'Mobile'=>'Required',
-			'Price'=> 'required ',
-            'Insurance'=> 'required ',
-            
-
-              
-        ]);
-        Accounting::query()->create([
-            'Name'=> $request->Name,
-            'Mobile'=> $request->Mobile,
-		    'Price'=> $request->Price,
-
-            'Description'=> $request->Description,
-            'Insurance'=> $request->Insurance,
-		    'From'=> $request->From,
-
-            'Payment'=> $request->Payment,
-            'Date'=> $request->Date,
-		    'Day'=> $request->Day,
-            'WeekDay'=> $request->WeekDay,
-            'Moon'=> $request->Moon,
-		    'Year'=> $request->Year,
-            'UserId'=>$request->UserId,
-		
-         
-        ]);
-        return redirect()->back()->with('success','سند حسابداری با موفقیت ثبت شد.');
-
+        //
     }
 
     /**
@@ -85,24 +67,20 @@ class HesabController extends Controller
     {
         //
     }
-
-
-
-
-
-
-
-    public function costshow()
+    public function delete($id)
     {
-        $show=Payment::all()->sortByDesc('id');
-        $from=Payment::all()->sortByDesc('id');
-        return view('pages.Cost',compact("show","from"));
+
+        payment::find($id)->delete();
+
+        return redirect()->back()->with('success','سند  با موفقیت حذف شد.');
+
     }
 
 
 
 
 
+    
 
     public function coststore(Request $request)
     {
@@ -129,7 +107,4 @@ class HesabController extends Controller
         return redirect()->back()->with('success','سند حسابداری با موفقیت ثبت شد.');
 
     }
-
-
-
 }
