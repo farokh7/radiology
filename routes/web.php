@@ -4,6 +4,7 @@ use App\Http\Controllers\FromController;
 use App\Http\Controllers\FromInfoController;
 use App\Http\Controllers\HesabController;
 use App\Http\Controllers\CostController;
+use App\Http\Controllers\Logincontrroler;
 
 use App\Http\Controllers\HoghoghController;
 use Illuminate\Support\Facades\Route;
@@ -44,4 +45,8 @@ Route::post('/cost/store',[CostController::class,'coststore'])->Name('coststore'
 Route::get('/cost/delete/{id}',[CostController::class,'delete'])->Name('costdelet');
 Route::get('/cost/update/{id}',[CostController::class,'update'])->Name('costupdate');
 
+
+
+Route::get('/login',[Logincontrroler::class,'index'])->name('login');
+ 
 
