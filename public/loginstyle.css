@@ -1,0 +1,32 @@
+body{
+    background-image: url("img/login.JPG ");
+   
+    background-size: cover;
+    direction: rtl;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+#loginform{
+
+    width: 400px;
+    height: 250px;
+    margin-right: 30%;
+    border: 1px solid black;
+    margin-top: 20%;
+    background-color: rgb(43, 39, 39);
+    opacity: 0.6;
+   color: aliceblue;
+    transition: 1s;
+    padding-top: 100px;
+    padding-right: 50px;
+}
+
+#loginform:hover{
+
+    border-radius: 30px;
+}
+
+#loginform input{
+width: 100%;
+}
