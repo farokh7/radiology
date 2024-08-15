@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http;
+use App\Http\Middleware\User11;
+
+
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -63,5 +66,8 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        
+        'Userlogin'=> Userlogin::class,
+        'user'=>User11::class,
     ];
 }
