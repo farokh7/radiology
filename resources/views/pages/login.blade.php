@@ -18,7 +18,7 @@
        
     
     <div id="loginform">
-        <form action="{{route('login')}}" method="post" >
+        <form action="{{route('checkuser')}}" method="post" >
            
             @csrf
        <table>
