@@ -12,7 +12,7 @@ install   اموزش نصب
 بعد از نصب ومپ یا زمپ یا هر چی که استفاده میکنید با استفاده از دستور زیر در CMD میتوانید پروژه را نصب کنید 
 
 
-git clone https://github.com/farokh7/easyvpn.git
+git clone https://github.com/farokh7/radiology/
 
 و بعد با دستور 
 
