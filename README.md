@@ -15,7 +15,9 @@ install   اموزش نصب
 git clone https://github.com/farokh7/radiology/
 
 کامپوزر را بروزرسانی کنید
+
 composer update
+
 و بعد با دستور 
 
 
