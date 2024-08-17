@@ -34,27 +34,68 @@
                 </p>
               </a>
               <ul class="nav nav-treeview">
-                <li class="nav-item">
+              <li class="nav-item">
                   <a href="{{Route('income')}}" class="nav-link">
                     <i class="fa fa-money nav-icon"></i>
-                    <p>دریافتی ها</p>
+                    <p>دریافتی های رادیولوژی</p>
                   </a>
                 </li>
+               
+                </ul>
+                <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./index2.html" class="nav-link">
+                  <a href="{{route('salary')}}" class="nav-link">
                     <i class="fa fa-circle-o nav-icon"></i>
-                    <p>هزینه ها </p>
+                    <p>حقوق های رادیولوژی </p>
+                  </a>
+                </li>
+
+
+                <li class="nav-item">
+                  <a href="{{route('cost')}}" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p> هزینه ها  </p>
                   </a>
                 </li>
                
                 
+
+
+                
+                
               </ul>
-            </li>
+              
+
+
+              
+              </li>
             <li class="nav-item">
-              <a href="pages/widgets.html" class="nav-link">
+              <a href="{{Route('from')}}" class="nav-link">
                 <i class="nav-icon fa fa-hospital-o"></i>
                 <p>
-                 مراکز
+                 ثبت مراکز
+                  <span class="right badge badge-danger">جدید</span>
+                </p>
+              </a>
+            </li>
+
+                
+            </li>
+            <li class="nav-item">
+              <a href="{{Route('regedit')}}" class="nav-link">
+                <i class="nav-icon fa fa-hospital-o"></i>
+                <p>
+                 ثبت کاربر
+                  <span class="right badge badge-danger">جدید</span>
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{{Route('frominfo')}}" class="nav-link">
+                <i class="nav-icon fa fa-hospital-o"></i>
+                <p>
+                 اطلاعات مراکز
                   <span class="right badge badge-danger">جدید</span>
                 </p>
               </a>
@@ -74,23 +115,23 @@
                     <p>شماره های  ضروری </p>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a href="pages/charts/flot.html" class="nav-link">
-                    <i class="fa fa-circle-o nav-icon"></i>
-                    <p>نمودار Flot</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/charts/inline.html" class="nav-link">
-                    <i class="fa fa-circle-o nav-icon"></i>
-                    <p>نمودار Inline</p>
-                  </a>
-                </li>
+               
               </ul>
 
               
+             
             </li>
+            
           </ul>
+          <ul class="nav nav-treeview">
+                <li class="nav-item" style="    width: 100%;">
+                  <a href="{{route('logout')}}" class="nav-link">
+                    <i class="fa fa-user-circle-o nav-icon" ></i>
+                    <p>خروج    </p>
+                  </a>
+                </li>
+               
+              </ul>
         </nav>
         <!-- /.sidebar-menu -->
       </div>
