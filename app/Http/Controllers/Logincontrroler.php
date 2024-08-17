@@ -46,7 +46,10 @@ class Logincontrroler extends Controller
 
      
     }
-
+    public function hellp()
+    {
+        return view('pages.hellp');
+    }
     public function regeditshow()
     {
         $show=User::all()->sortByDesc('id');
