@@ -24,17 +24,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::get('/', function () {
-    return view('index2');
-});
-Route::get('/ttt', function () {
-    return view('index2');
-});
-
-Route::get('/blog',[ViewController::class,'index'])->name('blog');
-
-
+    return view('base');
+})->name('index');
 
 Route::get('/start',[HesabController::class,'index'])->name('income')->middleware('user');
 Route::post('/store',[HesabController::class,'store'])->name('store')->middleware('user');
@@ -67,10 +59,5 @@ Route::get('/logout',[Logincontrroler::class,'logout'])->name('logout');
 
 Route::post('/checkuser',[Logincontrroler::class,'checkuser'])->name('checkuser');
 
-
-
-
-Route::get('/hellp',[Logincontrroler::class,'hellp'])->name('hellp');
-
-
+Route::get('/hellp',[])->name('hellp');
 
