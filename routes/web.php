@@ -5,6 +5,7 @@ use App\Http\Controllers\FromInfoController;
 use App\Http\Controllers\HesabController;
 use App\Http\Controllers\CostController;
 use App\Http\Controllers\Logincontrroler;
+use App\Http\Controllers\AdminController;
 
 use App\Http\Middleware;
 use App\Http\Middleware\User11;
@@ -59,5 +60,11 @@ Route::get('/logout',[Logincontrroler::class,'logout'])->name('logout');
 
 Route::post('/checkuser',[Logincontrroler::class,'checkuser'])->name('checkuser');
 
-Route::get('/hellp',[])->name('hellp');
+Route::get('/hellp',[Logincontrroler::class,'hellp'])->name('hellp');
+
+
+
+
+
+Route::get('/admin',[AdminController::class , 'index'])->name('admin')->middleware('user');
 
