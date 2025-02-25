@@ -16,18 +16,38 @@
 
         <style>
 
+
+@media screen and (min-width:900px)
+{
+
+     #newss{
+       width:35% !important;
+      }
+
+}
 @media screen and (max-width:900px)
 {
+
+      #header{
+                width: 100%;
+                height: 300px;
+
+    background-image: url("{{ asset('bg.jpg') }}");
+    background-size: 10% 72%;
+            }
     .ftext{
         font-size: 10px;
     }
     #logo{
         display: none;
     }
-    #header pre{
+ #header pre{
               
               font-size: 10px;
               margin-right: 1%;
+              background-color: #fff;
+              opacity: 0.9;
+               font-size: x-large !important;
               }
     #menu ul li a{
      
@@ -40,7 +60,7 @@
    
             }
 }
-@media screen and (max-width:750px)
+@media screen and (max-width:791px)
 {
 
     #header img{
@@ -50,6 +70,57 @@
             .hamkaran{
                 width: 100%;
             }
+}
+
+@media screen and (max-width:550px)
+{
+#menu{
+height:170px !important;
+}
+.hamkaran {
+    float: right;
+    margin-right: 10% !important;
+    height: 300px;
+    width: 18% !important;
+    font-size: 10 !important;
+}
+.hamkaran input{
+       font-size: 10px!important;
+    width: auto !important;
+    font-size: 10 !important;
+}
+  #footer img{
+      
+     with:35% !important;
+     
+   } 
+
+
+}
+
+
+@media screen and (max-width:400px)
+{
+          #header{
+                width: 100%;
+                height: 300px;
+
+    background-image: url("{{ asset('bg.jpg') }}");
+    background-size: 50% 72% !important;
+            }
+.hamkaran {
+    float: right;
+    margin-right: 10% !important;
+    height: 300px;
+    width: 10% !important;
+    font-size: 10 !important;
+}
+.hamkaran input{
+       font-size: 10px!important;
+    width: auto !important;
+    font-size: 10 !important;
+}
+
 }
 
 .hamkaran{
@@ -62,18 +133,24 @@
                 font-family: 'Nunito', sans-serif;
 
             }
-            #header{
+              #header{
                 width: 100%;
                 height: 300px;
 
+    background-image: url("{{ asset('bg.jpg') }}");
+    background-size: 10% 72%;
             }
-            #header pre{
+      #header pre{
                 float: right;
     color: #5559ce;
     margin-top: 10%;
     margin-right: 20%;
     text-align: center;
     font-size: xx-large;
+    background-color: #fff;
+              opacity: 0.9;
+              border-radius: 10%;
+ padding: 7px;
             }
             #header img{
                 float: left;
@@ -99,7 +176,14 @@
 }
 #menu ul li:hover{
            
+    
+           
     color: #ffffff;
+    border: solid 1px #000;
+    padding: 3px;
+    border-radius: 10%;
+   
+
    
 }
 #cooperation div div center a input{
@@ -118,6 +202,15 @@
       color: #fff;
      
    }  
+
+   #footer input:hover{
+      
+      border: #108ac6 solid 1px;
+      color: #108ac6 ;
+     
+   } 
+
+   
         </style>
     </head>
     <body >
@@ -170,13 +263,13 @@
     </center>
     </div>
     <div id="news" style="padding-top: 50px">
-        <div style="float:left;margin-left: 5%;height: 300px;width: 45%">
+        <div id="newss" style="float:left;margin-left: 5%;height: 300px;width: 45%">
 
                 <img src="ninisite.jpg" style="width:90%;height: auto;" ><br>
                     <a target="_blank" href="https://www.ninisite.com/article/17486/%D8%A8%D9%87%D8%AA%D8%B1%DB%8C%D9%86-%D8%B3%D9%88%D9%86%D9%88%DA%AF%D8%B1%D8%A7%D9%81%DB%8C-%D8%AF%D8%B1-%D8%B4%D8%B1%D9%82-%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%B3%D9%88%D9%86%D9%88%DA%AF%D8%B1%D8%A7%D9%81%DB%8C-%D9%81%D8%B1%D8%AE"><input type="button" value="دیدن خبر" style="margin-top: 50px;font-size: x-large;color:#00acc2;width:150px;margin-left: 40%;background-color:#ffa827 ;"></a>
         </div>
 
-        <div style="float:right;margin-right: 5%;height: 300px;width: 45%">
+        <div id="newss" style="float:right;margin-right: 5%;height: 300px;width: 45%">
 
             <img src="1PEZESHK.png" style="width:90%;height: auto;" ><br>
                 <a target="_blank" href="https://www.1pezeshk.com/archives/2024/01/%D8%B1%D8%A7%D8%AF%DB%8C%D9%88%D9%84%D9%88%DA%98%DB%8C-%D9%81%D9%88%D8%B1%DB%8C-%D9%85%D9%88%D8%B3%D8%B3%D9%87-%D8%B1%D8%A7%D8%AF%DB%8C%D9%88%D9%84%D9%88%DA%98%DB%8C-%D9%81%D8%B1%D8%AE.html"><input type="button" value="دیدن خبر" style="margin-top: 50px;font-size: x-large;color:#00acc2;width:150px;margin-left: 40%;background-color:#ffa827 ;"></a>
@@ -208,7 +301,10 @@
                </div>
 
 
-<div style="clear:both;height: 210px;width: 100%;"></div>
+<div style="clear: both;
+    height: 210px;
+    width: 100%;
+    margin-bottom: 10%;"></div>
 
 <div class="hamkaran" style="">
     <center>

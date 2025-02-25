@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="{{asset('dist/css/bootstrap-rtl.min.css')}}">
   <!-- template rtl version -->
   <link rel="stylesheet" href="{{asset('dist/css/custom-style.css')}}">
+  <link rel="stylesheet" href="{{asset('dist/css/me.css')}}">
 
 </head>
 <!--
@@ -45,7 +46,14 @@ to get the desired effect
         <a href="{{route('income')}}" class="nav-link">خانه</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{route('hellp')}}" class="nav-link">کمک به توسعه</a>
+        <a href="{{route('hellp')}}" class="nav-link v">کمک به توسعه</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="{{route('admin')}}" class="nav-link">  مدیریت</a>
+      </li>
+      
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="{{route('cost')}}" class="nav-link"> هزینه ها </a>
       </li>
     </ul>
 

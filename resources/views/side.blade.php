@@ -1,4 +1,5 @@
 
+
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
@@ -104,15 +105,15 @@
               <a href="#" class="nav-link">
                 <i class="nav-icon fa fa-headphones"></i>
                 <p>
-                   تلفن خانه 
+                   مدیریت
                   <i class="right fa fa-angle-left"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="pages/charts/chartjs.html" class="nav-link">
+                  <a href="{{Route('admin')}}" class="nav-link">
                     <i class="fa fa-circle-o nav-icon"></i>
-                    <p>شماره های  ضروری </p>
+                    <p>دید کلی    </p>
                   </a>
                 </li>
                
