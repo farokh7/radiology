@@ -23,6 +23,43 @@ class AdminController extends Controller
    
     public function index()
     {
+
+
+
+        $date = new \jDateTime(true, true, 'Asia/Tehran');
+        $year = $date->date("Y");
+    
+        $monthlyIncome = [];
+        $monthlyPatients = [];
+        for ($i = 1; $i <= 12; $i++) {
+            $month = sprintf('%02d', $i); // اضافه کردن صفر قبل از اعداد یک رقمی
+            $income = Accounting::query()->where('year', $year)->where('moon', $month)->sum('price');
+            $patientsCount = Accounting::query()->where('year', $year)->where('moon', $month)->count('price');
+            $monthlyIncome[$month] = $income;
+            $monthlyPatients[$month] = $patientsCount;
+        }
+
+
+
+
+
+
+        $date = new \jDateTime(true, true, 'Asia/Tehran');
+        $year = $date->date("Y");
+    
+        $monthlyIncome = [];
+        for ($i = 1; $i <= 12; $i++) {
+            $month = sprintf('%02d', $i); // اضافه کردن صفر قبل از اعداد یک رقمی
+            $income = Accounting::query()->where('year', $year)->where('moon', $month)->sum('price');
+            $monthlyIncome[$month] = $income;
+        }
+
+
+
+
+
+
+
         $date = new \jDateTime(true, true, 'Asia/Tehran');
 
         $year = $date->date("Y");
@@ -87,9 +124,10 @@ class AdminController extends Controller
             ->get();
 
 
-        return view('pages.admin', compact('lastmoon1','countthisday', 'thismoon', 'lastmoon', 'thisday', 'averageDailyIncome', 'distinctDaysCount', 'countthismoon', 'moon','day','centers'));
-         }
-
+            return view('pages.admin', compact('monthlyIncome', 'monthlyPatients', 'lastmoon1','countthisday', 'thismoon', 'lastmoon', 'thisday', 'averageDailyIncome', 'distinctDaysCount', 'countthismoon', 'moon','day','centers'));
+            
+    }
+    
     /**
      * Store a newly created resource in storage.
      *
